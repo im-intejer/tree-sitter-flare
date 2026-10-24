@@ -40,16 +40,15 @@ export default grammar({
     comment: _ => /#[^\n]*/,
 
     _expression: $ => choice(
+      $.call_expression,
       $.binary_expression,
       $._atom,
-      $.call_expression,
       // $.match_expression,
     ),
 
     _atom: $ => choice(
       $.number,
       $.string,
-      $.boolean,
       $.parenthesized_expression,
       $.fielded_constructor,
       // $.field_access,
@@ -87,8 +86,6 @@ export default grammar({
     ),
 
     string: _ => seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
-
-    boolean: _ => choice('true', 'false'),
 
     identifier: _ => new RustRegex('(?i)[a-z_][a-z0-9_]*'),
 

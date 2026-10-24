@@ -1,0 +1,235 @@
+=========
+Add
+=========
+
+A = 1 + 2
+A = 1.0 + 2.0
+A = 1.0 + 2
+A = 1 + 2.0
+
+A = 1 + -2
+A = 1.0 + -2.0
+
+A = 1 + x
+A = x + 1
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (identifier)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (identifier)
+      (number))))
+
+=========
+Sub
+=========
+
+S = 1 - 2
+S = 1.0 - 2.0
+S = 1.0 - 2
+S = 1 - 2.0
+
+S = 1 - -2
+S = 1.0 - -2.0
+
+S = 1 - x
+S = x - 1
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (identifier)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (identifier)
+      (number))))
+
+=========
+Mul
+=========
+
+M = 1 * 2
+M = 1.0 * 2.0
+M = 1.0 * 2
+M = 1 * 2.0
+
+M = 1 * -2
+M = 1.0 * -2.0
+
+M = 1 * x
+M = x * 1
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (identifier)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (identifier)
+      (number))))
+
+=========
+Div
+=========
+
+D = 1 / 2
+D = 1.0 / 2.0
+D = 1.0 / 2
+D = 1 / 2.0
+
+D = 1 / -2
+D = 1.0 / -2.0
+
+D = 1 / x
+D = x / 1
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (number)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (number)
+      (identifier)))
+  (field_assignment
+    (identifier)
+    (binary_expression
+      (identifier)
+      (number))))

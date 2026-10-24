@@ -12,10 +12,6 @@
             "named": true
           },
           {
-            "type": "boolean",
-            "named": true
-          },
-          {
             "type": "call_expression",
             "named": true
           },
@@ -116,10 +112,6 @@
             "named": true
           },
           {
-            "type": "boolean",
-            "named": true
-          },
-          {
             "type": "call_expression",
             "named": true
           },
@@ -148,11 +140,6 @@
     }
   },
   {
-    "type": "boolean",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "call_expression",
     "named": true,
     "fields": {
@@ -160,10 +147,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "boolean",
-            "named": true
-          },
           {
             "type": "fielded_constructor",
             "named": true
@@ -192,10 +175,6 @@
         "types": [
           {
             "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "boolean",
             "named": true
           },
           {
@@ -236,10 +215,6 @@
         "types": [
           {
             "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "boolean",
             "named": true
           },
           {
@@ -316,10 +291,6 @@
       "types": [
         {
           "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "boolean",
           "named": true
         },
         {
@@ -453,10 +424,6 @@
     "extra": true
   },
   {
-    "type": "false",
-    "named": false
-  },
-  {
     "type": "identifier",
     "named": true
   },
@@ -471,10 +438,6 @@
   },
   {
     "type": "pub",
-    "named": false
-  },
-  {
-    "type": "true",
     "named": false
   },
   {

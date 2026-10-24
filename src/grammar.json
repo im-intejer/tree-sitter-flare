@@ -135,15 +135,15 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "call_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "binary_expression"
         },
         {
           "type": "SYMBOL",
           "name": "_atom"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "call_expression"
         }
       ]
     },
@@ -157,10 +157,6 @@
         {
           "type": "SYMBOL",
           "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "boolean"
         },
         {
           "type": "SYMBOL",
@@ -302,19 +298,6 @@
         {
           "type": "STRING",
           "value": "\""
-        }
-      ]
-    },
-    "boolean": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "true"
-        },
-        {
-          "type": "STRING",
-          "value": "false"
         }
       ]
     },

@@ -11,8 +11,8 @@ test: build
 testu: build
     tree-sitter test -u
 
-testp: build
-    tree-sitter parse --test-number=3 -c
+testp num: build
+    tree-sitter parse --test-number="{{num}}" -c
 
 show: build
     tree-sitter highlight --query-paths ./queries/highlights.scm --paths paths.txt
