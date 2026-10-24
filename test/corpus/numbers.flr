@@ -1,0 +1,305 @@
+=========
+Digits
+=========
+
+A = 0
+B = 1
+C = 2
+D = 3
+E = 4
+F = 5
+G = 6
+H = 7
+I = 9
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (number)))
+
+=========
+Integers
+=========
+
+X = 12
+Y = 345
+Z = 6789
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+=========
+Negative Integers
+=========
+
+X = -12
+Y = -345
+Z = -6789
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+=========
+Floats
+=========
+
+F = 1.2
+G = 12.3
+H = 1.23
+I = 12.34
+
+J = -5.6
+K = -56.78
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+=========
+Hexadecimal
+=========
+
+W = 0x1234567890ABCDEF
+X = 0xdeadbeef
+Y = 0xBADCAFE
+Z = -0xF0CACC1AI
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (call_expression
+      (number)
+      (identifier))))
+
+=========
+Binary
+=========
+
+B = 0b0
+C = 0b1
+D = 0b01010100010
+E = -0x0101010010
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+=========
+Octal
+=========
+
+B = 0o01234567
+E = -0o01234567
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+=========
+Scientific Notation Integers
+=========
+
+A = 1e10
+B = 1E10
+C = 1e+10
+D = 1e-10
+E = 1E+10
+F = 1E-10
+
+A = -1e10
+B = -1E10
+C = -1e+10
+D = -1e-10
+E = -1E+10
+F = -1E-10
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))
+
+
+=========
+Scientific Notation Floats
+=========
+
+A = 1.5e10
+B = 1.5E10
+C = 1.5e+10
+D = 1.5e-10
+E = 1.5E+10
+F = 1.5E-10
+
+A = -1.51e10
+B = -1.51E10
+C = -1.51e+10
+D = -1.51e-10
+E = -1.51E+10
+F = -1.51E-10
+
+---
+
+(source_file
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number))
+  (field_assignment
+    (identifier)
+    (number)))

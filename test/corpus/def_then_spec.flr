@@ -1,4 +1,0 @@
-Test = {
-	one: num = 1
-	two = type num
-}

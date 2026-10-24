@@ -1,0 +1,86 @@
+=========
+Unit
+=========
+
+Unit = (): ()
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (fielded_constructor)
+      right: (fielded_constructor))))
+
+=========
+Single Argument
+=========
+
+Unit = (x = A): x
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (fielded_constructor
+        assignment: (field_assignment
+          id: (identifier)
+          expr: (identifier)))
+      right: (identifier))))
+
+=========
+Multiple Arguments
+=========
+
+Unit = (x = A, y = B): y
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (fielded_constructor
+        assignment: (field_assignment
+          id: (identifier)
+          expr: (identifier))
+        assignment: (field_assignment
+          id: (identifier)
+          expr: (identifier)))
+      right: (identifier))))
+
+=========
+Line Break
+=========
+
+Unit = ():
+x
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (fielded_constructor)
+      right: (identifier))))
+
+
+=========
+Line Break with Tab
+=========
+
+Unit = ():
+          x
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (fielded_constructor)
+      right: (identifier))))

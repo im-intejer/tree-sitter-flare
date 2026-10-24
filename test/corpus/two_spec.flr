@@ -1,4 +1,0 @@
-Test = type {
-	one: num
-	two: unit
-}

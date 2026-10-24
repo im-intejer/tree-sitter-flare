@@ -1,0 +1,47 @@
+=========
+Single Value
+=========
+
+A = (x)
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (parenthesized_expression
+      (identifier))))
+
+=========
+Grouped Expression
+=========
+
+A = (x + y)
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (parenthesized_expression
+      (binary_expression
+        left: (identifier)
+        right: (identifier)))))
+
+=========
+Precedence Override
+=========
+
+A = (x + y) * 3
+
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (binary_expression
+      left: (parenthesized_expression
+        (binary_expression
+          left: (identifier)
+          right: (identifier)))
+      right: (number))))

@@ -1,16 +1,14 @@
 const PREC = {
-  pattern: -1,
-  parenthesized_expression: 1,
-
-  type_arrow: 9,
-
-  compare: 13,
-  add: 18,
-  mul: 19,
-  property: 22,
-  call: 23,
-  access: 24,
-  match: 25,
+  access: 10,
+  call: 9,
+  mul: 8,
+  add: 7,
+  compare: 6,
+  pipe: 5,
+  intersect: 4,
+  join: 3,
+  func_colon: 2,
+  definition: 1,
 };
 
 export default grammar({
@@ -24,32 +22,16 @@ export default grammar({
 
   reserved: {
     global: _ => [
-      'as',
-      'all',
-      'extend',
-      'extern',
-      'fn',
       // 'match',
-      'pub',
-      'or',
-      // 'return',
-      'type',
-      'use',
-      'via',
     ],
   },
   word: $ => $.identifier,
 
   supertypes: $ => [
-    $.pattern,
-    $._type,
-    $.path_or_id,
-    $.macro_invoke,
   ],
 
   rules: {
     source_file: $ => flareSep(choice(
-      field('macro', $.macro_invoke),
       field('assignment', $.field_assignment),
     )),
 
@@ -57,206 +39,79 @@ export default grammar({
 
     comment: _ => /#[^\n]*/,
 
-    macro_invoke: $ => choice(
-      $.use_macro,
-      $.type_macro,
-      $.extend_macro,
-      // $.return_macro,
-    ),
-
-    use_macro: $ => seq(
-      'use',
-      field('import', $.pattern),
-    ),
-
-    type_macro: $ => seq(
-      'type',
-      field('name', $.pattern),
-      ':',
-      field('type', $._type),
-    ),
-
-    extend_macro: $ => seq(
-      'extend',
-      field('left', $._type),
-      optional(
-        seq(
-          '::',
-          field('right', $._type),
-        )
-      ),
-      '=',
-      '{',
-      flareSep($.field_assignment),
-      '}',
-    ),
-
-    // return_macro: $ => seq(
-    //   'return',
-    //   $._mod_expr,
-    // ),
-
-    _type: $ => choice(
-      $._type_atom,
-      $.arrow_type,
-      $.type_app,
-      $.self_type,
-      $.product_type,
-      $.sum_type,
-      $.via,
-      $.forall,
-    ),
-
-    _type_atom: $ => choice(
-      $.primitive_type,
-      $.grouped_type,
-      $.identifier,
-    ),
-
-    via: $ => seq(
-      'via',
-      $._expression,
-    ),
-
-    forall: $ => seq(
-      'all',
-      repeat1(field('arg', $.identifier)),
-      '=>',
-      field('expr', $._type)
-    ),
-
-    type_app: $ => prec.left(PREC.call, seq(
-      $._type,
-      $._type_atom,
-    )),
-
-    grouped_type: $ => seq('(', $._type, ')'),
-
-    primitive_type: $ => choice(
-      'num',
-      'str',
-      'bool',
-    ),
-
-    self_type: _ => 'self',
-
-    arrow_type: $ => prec.right(PREC.type_arrow, seq(
-      field('left', $._type),
-      '->',
-      field('right', $._type)
-    )),
-
-    product_type: $ => seq(
-      '{',
-      flareSep(seq(
-        field("name", $.identifier),
-        ':',
-        field("type", $._type)
-      )),
-      '}'
-    ),
-
-    sum_type: $ => prec.right(seq(
-      '|',
-      flareSep(
-        seq(
-          field("name", $.identifier),
-          field("type", optional($._type))
-        )
-      ),
-      '|'
-    )),
-
-    _mod_expr: $ => choice(
-      $.extern_expression,
-      $._expression,
-    ),
-
     _expression: $ => choice(
-      $.lambda,
-      $.prop_access,
       $.binary_expression,
       $._atom,
       $.call_expression,
-      $.sum_constructor,
+      // $.match_expression,
     ),
 
     _atom: $ => choice(
-      $.unit_expr,
       $.number,
       $.string,
       $.boolean,
       $.parenthesized_expression,
       $.fielded_constructor,
-      $.field_access,
+      // $.field_access,
       $.identifier,
     ),
 
-    number: _ => /\d+(\.\d+)?/,
+    number: $ => token(
+      seq(
+        optional('-'),
+        choice(
+          // Hexadecimal: 0x1A2F, 0Xff
+          /0[xX][0-9a-fA-F]+/,
+
+          // Binary: 0b1010
+          /0[bB][01]+/,
+
+          // Octal: 0o755
+          /0[oO][0-7]+/,
+
+          // Decimals & Floats with Scientific Notation
+          seq(
+            /\d+/,
+            optional(seq('.', /\d+/)),
+            // optional(seq('.', optional(/\d+/))),
+            optional(seq(/[eE]/, optional(/[-+]/), /\d+/))
+          ),
+
+          // Fractional floats: .5, .5e-3
+          // seq(
+          //   '.',
+          //   /\d+/,
+          //   optional(seq(/[eE]/, optional(/[-+]/), /\d+/))
+          // )
+        ))
+    ),
 
     string: _ => seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
-
-    unit_expr: _ => 'unit',
 
     boolean: _ => choice('true', 'false'),
 
     identifier: _ => new RustRegex('(?i)[a-z_][a-z0-9_]*'),
 
-    path: $ => prec.left(PREC.access, seq(
-      $.identifier,
-      repeat1(seq('.', $.identifier))
-    )),
-
-    path_or_id: $ => choice($.identifier, $.path),
-
-    type_expression: $ => seq(
-      'type',
-      $._type
-    ),
-
-    extern_expression: $ => seq(
-      'extern',
-      $._mod_expr,
-    ),
-
-    lambda: $ => prec.right(seq(
-      'fn',
-      repeat1(field('arg', $.identifier)),
-      '=>',
-      field('expr', $._expression)
-    )),
-
     fielded_constructor: $ => seq(
-      '{',
+      '(',
       flareSep(choice(
-        field('macro', $.macro_invoke),
         field('assignment', $.field_assignment),
-        field('inherit', $.identifier),
       )),
-      '}'
+      ')'
     ),
 
     field_assignment: $ => seq(
       field('is_pub', optional('pub')),
-      field('pat', $.pattern),
-      optional(seq(
-        ':',
-        field('type', $._type),
-      )),
+      field('id', $.identifier),
       '=',
-      field('expr', $._mod_expr)
+      field('expr', $._expression)
     ),
 
-    sum_constructor: $ => prec.right(seq(
-      '|',
-      field('name', $.identifier),
-      field('expr', optional($._expression)),
-      '|'
-    )),
 
     binary_expression: $ => choice(
       ...[
-        ['as', PREC.match],
+        ['.', PREC.access],
+        // ['', PREC.call],
         ['*', PREC.mul],
         ['/', PREC.mul],
         ['+', PREC.add],
@@ -267,6 +122,10 @@ export default grammar({
         ['<=', PREC.compare],
         ['>', PREC.compare],
         ['>=', PREC.compare],
+        ['|>', PREC.pipe],
+        ['&', PREC.intersect],
+        ['|', PREC.join],
+        [':', PREC.func_colon],
       ].map(([op, the_prec]) =>
         prec.left(the_prec, seq(
           field('left', $._expression),
@@ -276,27 +135,17 @@ export default grammar({
       )
     ),
 
+    // match_expression: $ => prec.left(PREC.match,seq(
+    //   'match',
+    //   field('expr', $._atom),
+    //   flareSep(
+    //     field('arm', $.binary_expression)
+    //   )
+    // )),
+
     call_expression: $ => prec.left(PREC.call, seq(
       field('func', $._expression),
       field('expr', $._atom)
-    )),
-
-    field_access: $ => prec.left(PREC.access, seq(
-      field('expr', $._atom),
-      '.',
-      field('field', $.pattern),
-    )),
-
-    prop_qualifier: $ => seq(
-      field('lcolon', token(':')),
-      field('name', $.identifier),
-      field('rcolon', token(':')),
-    ),
-
-    prop_access: $ => prec.left(PREC.property, seq(
-      field('expr', $._atom),
-      choice('::', $.prop_qualifier),
-      field('name', $.identifier),
     )),
 
     parenthesized_expression: $ => seq(
@@ -305,31 +154,7 @@ export default grammar({
       ')'
     ),
 
-    pattern: $ => prec.right(choice(
-      $.pattern_func,
-      $.pattern_alias,
-      $.pattern_or,
-      $._atom,
-    )),
 
-    pattern_func: $ => prec.right(PREC.pattern, seq(
-      field('name', $.identifier),
-      field('arg', repeat1($.identifier)),
-    ),
-    ),
-
-    pattern_or: $ => prec.right(seq(
-      $._atom,
-      'or',
-      $.pattern
-    )),
-
-    pattern_alias: $ => seq(
-      $.pattern,
-      '@',
-      $.identifier,
-    ),
-   
   }
 });
 

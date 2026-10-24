@@ -1,0 +1,88 @@
+=========
+Sequential
+=========
+
+A = ()
+B = ()
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor)))
+
+=========
+Duplicate
+=========
+
+A = ()
+A = ()
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor))
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor)))
+
+=========
+Sequential Nesting
+=========
+
+A = (B = ())
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor
+      assignment: (field_assignment
+        id: (identifier)
+        expr: (fielded_constructor)))))
+
+=========
+Duplicate Nesting
+=========
+
+A = (A = ())
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor
+      assignment: (field_assignment
+        id: (identifier)
+        expr: (fielded_constructor)))))
+
+=========
+Deep Nesting
+=========
+
+A = (B = (C = (D = (E = (F = G)))))
+---
+
+(source_file
+  assignment: (field_assignment
+    id: (identifier)
+    expr: (fielded_constructor
+      assignment: (field_assignment
+        id: (identifier)
+        expr: (fielded_constructor
+          assignment: (field_assignment
+            id: (identifier)
+            expr: (fielded_constructor
+              assignment: (field_assignment
+                id: (identifier)
+                expr: (fielded_constructor
+                  assignment: (field_assignment
+                    id: (identifier)
+                    expr: (fielded_constructor
+                      assignment: (field_assignment
+                        id: (identifier)
+                        expr: (identifier)))))))))))))

@@ -1,11 +1,22 @@
 =========
+Empty File
+=========
+
+---
+
+(source_file)
+
+=========
 Empty Row
 =========
-Test = {}
+
+Test = ()
 
 ---
 
 (source_file
   assignment: (field_assignment
-    name: (identifier)
+    id: (identifier)
     expr: (fielded_constructor)))
+
+
