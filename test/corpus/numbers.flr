@@ -15,32 +15,32 @@ I = 9
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number))
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (number)))
 
 =========
@@ -54,13 +54,13 @@ Z = 6789
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
 
@@ -75,13 +75,13 @@ Z = -6789
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
 
@@ -99,22 +99,22 @@ K = -56.78
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
 
@@ -130,16 +130,16 @@ Z = -0xF0CACC1AI
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (call_expression
       (number)
@@ -157,16 +157,16 @@ E = -0x0101010010
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
 
@@ -180,10 +180,10 @@ E = -0o01234567
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
 
@@ -208,43 +208,42 @@ F = -1E-10
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))
-
 
 =========
 Scientific Notation Floats
@@ -267,39 +266,39 @@ F = -1.51E-10
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number))
-  (field_assignment
+  (assignment
     (identifier)
     (number)))

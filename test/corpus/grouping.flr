@@ -7,8 +7,8 @@ A = (x)
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (parenthesized_expression
       (identifier))))
 
@@ -21,8 +21,8 @@ A = (x + y)
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (parenthesized_expression
       (binary_expression
         left: (identifier)
@@ -37,8 +37,8 @@ A = (x + y) * 3
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
+  assignment: (assignment
+    name: (identifier)
     expr: (binary_expression
       left: (parenthesized_expression
         (binary_expression

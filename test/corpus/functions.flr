@@ -7,11 +7,11 @@ Unit = (): ()
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (binary_expression
-      left: (fielded_constructor)
-      right: (fielded_constructor))))
+  assignment: (assignment
+    name: (identifier)
+    expr: (fn
+      (row_cons)
+      (row_cons))))
 
 =========
 Single Argument
@@ -22,14 +22,14 @@ Unit = (x = A): x
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (binary_expression
-      left: (fielded_constructor
-        assignment: (field_assignment
-          id: (identifier)
+  assignment: (assignment
+    name: (identifier)
+    expr: (fn
+      (row_cons
+        assignment: (assignment
+          name: (identifier)
           expr: (identifier)))
-      right: (identifier))))
+      (identifier))))
 
 =========
 Multiple Arguments
@@ -40,17 +40,17 @@ Unit = (x = A, y = B): y
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (binary_expression
-      left: (fielded_constructor
-        assignment: (field_assignment
-          id: (identifier)
+  assignment: (assignment
+    name: (identifier)
+    expr: (fn
+      (row_cons
+        assignment: (assignment
+          name: (identifier)
           expr: (identifier))
-        assignment: (field_assignment
-          id: (identifier)
+        assignment: (assignment
+          name: (identifier)
           expr: (identifier)))
-      right: (identifier))))
+      (identifier))))
 
 =========
 Line Break
@@ -62,12 +62,11 @@ x
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (binary_expression
-      left: (fielded_constructor)
-      right: (identifier))))
-
+  assignment: (assignment
+    name: (identifier)
+    expr: (fn
+      (row_cons)
+      (identifier))))
 
 =========
 Line Break with Tab
@@ -79,11 +78,8 @@ Break = ():
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (binary_expression
-      left: (fielded_constructor)
-      right: (identifier))))
-
-
-
+  assignment: (assignment
+    name: (identifier)
+    expr: (fn
+      (row_cons)
+      (identifier))))

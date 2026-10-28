@@ -1,14 +1,12 @@
 const PREC = {
-  access: 10,
-  call: 9,
-  mul: 8,
-  add: 7,
-  compare: 6,
-  pipe: 5,
-  intersect: 4,
-  join: 3,
-  func_colon: 2,
-  definition: 1,
+  access: 8,
+  call: 7,
+  mul: 6,
+  add: 5,
+  compare: 4,
+  pipe: 3,
+  intersect: 2,
+  join: 1,
 };
 
 export default grammar({
@@ -22,7 +20,6 @@ export default grammar({
 
   reserved: {
     global: _ => [
-      // 'match',
     ],
   },
   word: $ => $.identifier,
@@ -30,9 +27,10 @@ export default grammar({
   supertypes: $ => [
   ],
 
+  
   rules: {
     source_file: $ => flareSep(choice(
-      field('assignment', $.field_assignment),
+      field('assignment', $.assignment),
     )),
 
     line_join: _ => token(seq('\\', choice(seq(optional('\r'), '\n'), '\0'))),
@@ -42,17 +40,19 @@ export default grammar({
     _expression: $ => choice(
       $.call_expression,
       $.binary_expression,
+      $.fn,
       $._atom,
-      // $.match_expression,
     ),
 
     _atom: $ => choice(
       $.number,
       $.string,
+      $.tag,
       $.parenthesized_expression,
-      $.fielded_constructor,
-      // $.field_access,
+      $.braced_arms,
+      $.row_cons,
       $.identifier,
+      $.question_var,
     ),
 
     number: $ => token(
@@ -89,26 +89,28 @@ export default grammar({
 
     identifier: _ => new RustRegex('(?i)[a-z_][a-z0-9_]*'),
 
-    fielded_constructor: $ => seq(
+    tag: $ => seq('$', field('name', $.identifier)),
+
+    question_var: $ => seq('?', field('name', $.identifier)),
+
+    row_cons: $ => seq(
       '(',
       flareSep(choice(
-        field('assignment', $.field_assignment),
+        field('assignment', $.assignment),
+        field('rest','..'),
       )),
       ')'
     ),
 
-    field_assignment: $ => seq(
-      field('is_pub', optional('pub')),
-      field('id', $.identifier),
+    assignment: $ => seq(
+      field('name', $.identifier),
       '=',
       field('expr', $._expression)
     ),
 
-
     binary_expression: $ => choice(
       ...[
         ['.', PREC.access],
-        // ['', PREC.call],
         ['*', PREC.mul],
         ['/', PREC.mul],
         ['+', PREC.add],
@@ -122,7 +124,6 @@ export default grammar({
         ['|>', PREC.pipe],
         ['&', PREC.intersect],
         ['|', PREC.join],
-        [':', PREC.func_colon],
       ].map(([op, the_prec]) =>
         prec.left(the_prec, seq(
           field('left', $._expression),
@@ -132,13 +133,19 @@ export default grammar({
       )
     ),
 
-    // match_expression: $ => prec.left(PREC.match,seq(
-    //   'match',
-    //   field('expr', $._atom),
-    //   flareSep(
-    //     field('arm', $.binary_expression)
-    //   )
-    // )),
+    fn: $ => seq(
+      $._atom,
+      ':',
+      $._expression,      
+    ),
+
+    braced_arms: $ => seq(
+      '{',
+      flareSep(
+        field('arm', $.fn)
+      ),
+      '}',
+    ),
 
     call_expression: $ => prec.left(PREC.call, seq(
       field('func', $._expression),
@@ -150,13 +157,17 @@ export default grammar({
       $._expression,
       ')'
     ),
-
+ 
 
   }
 });
 
+function flare_delim() {
+  return choice(',', '\n')
+}
+
 function flareSep(rule) {
-  return sep_by(rule, choice(',', '\n'));
+  return sep_by(rule, flare_delim());
 }
 
 function sep_by(rule, separator) {

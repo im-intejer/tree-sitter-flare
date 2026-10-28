@@ -16,42 +16,42 @@ A = x + 1
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (identifier)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (identifier)
@@ -75,42 +75,42 @@ S = x - 1
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (identifier)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (identifier)
@@ -134,42 +134,42 @@ M = x * 1
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (identifier)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (identifier)
@@ -193,42 +193,42 @@ D = x / 1
 ---
 
 (source_file
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (number)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (number)
       (identifier)))
-  (field_assignment
+  (assignment
     (identifier)
     (binary_expression
       (identifier)

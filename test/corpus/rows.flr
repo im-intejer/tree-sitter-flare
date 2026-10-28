@@ -7,12 +7,12 @@ B = ()
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor))
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor)))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons)))
 
 =========
 Duplicate
@@ -23,12 +23,12 @@ A = ()
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor))
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor)))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons)))
 
 =========
 Sequential Nesting
@@ -38,12 +38,12 @@ A = (B = ())
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor
-      assignment: (field_assignment
-        id: (identifier)
-        expr: (fielded_constructor)))))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons
+      assignment: (assignment
+        name: (identifier)
+        expr: (row_cons)))))
 
 =========
 Duplicate Nesting
@@ -53,12 +53,12 @@ A = (A = ())
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor
-      assignment: (field_assignment
-        id: (identifier)
-        expr: (fielded_constructor)))))
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons
+      assignment: (assignment
+        name: (identifier)
+        expr: (row_cons)))))
 
 =========
 Deep Nesting
@@ -68,21 +68,21 @@ A = (B = (C = (D = (E = (F = G)))))
 ---
 
 (source_file
-  assignment: (field_assignment
-    id: (identifier)
-    expr: (fielded_constructor
-      assignment: (field_assignment
-        id: (identifier)
-        expr: (fielded_constructor
-          assignment: (field_assignment
-            id: (identifier)
-            expr: (fielded_constructor
-              assignment: (field_assignment
-                id: (identifier)
-                expr: (fielded_constructor
-                  assignment: (field_assignment
-                    id: (identifier)
-                    expr: (fielded_constructor
-                      assignment: (field_assignment
-                        id: (identifier)
+  assignment: (assignment
+    name: (identifier)
+    expr: (row_cons
+      assignment: (assignment
+        name: (identifier)
+        expr: (row_cons
+          assignment: (assignment
+            name: (identifier)
+            expr: (row_cons
+              assignment: (assignment
+                name: (identifier)
+                expr: (row_cons
+                  assignment: (assignment
+                    name: (identifier)
+                    expr: (row_cons
+                      assignment: (assignment
+                        name: (identifier)
                         expr: (identifier)))))))))))))
